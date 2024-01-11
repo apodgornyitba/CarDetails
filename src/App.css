@@ -1,17 +1,38 @@
-.cardContent .logo {
-    padding-top: 7.5%;
+.front{
+    padding-top: 15%;
+}
+.back{
+    margin-left: 7.5%;
+}
+
+.cardContent{
+    padding-left: 35px;
+    padding-bottom: 25px;
+}
+
+.cardContent .logo{
+    padding-top: 25px;
 }
 
 .cardContent .number {
-    padding-top: 15%;
-    color: white;
-    /*font-size: 1.5rem;*/
+    font-size: 26px;
+    padding-top: 30px;
 }
 
 .nameExpirationContainer {
     display: flex;
     justify-content: space-between;
-    margin-right: 15px;
+    margin-right: 55px;
+}
+
+.cardContent .cvv {
+    padding-left: 315px;
+    padding-top: 95px;
+}
+
+.cardContent .number,
+.nameExpirationContainer p,
+.cardContent .cvv {
+    letter-spacing: 3px;
     color: white;
-    /*font-size: 18px;*/
 }

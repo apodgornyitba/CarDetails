@@ -9,8 +9,9 @@ import {Card, Container} from "@mui/material";
 function App() {
 
     const [cardNumber, setCardNumber] = useState('0000 0000 0000 0000');
-    const [name, setName] = useState('Jane Appleseed');
+    const [name, setName] = useState('JANE APPLESEED');
     const [expirationDate, setExpirationDate] = useState('00/00');
+    const [cvv, setCvv] = useState('000');
 
     const containerStyle = {
         backgroundImage: `url(${BGMain})`,
@@ -18,18 +19,20 @@ function App() {
         backgroundSize: 'auto 100%',
         height: '100vh',
         margin: '0',
+        padding: '0',
     };
 
     const CardWithBG = (props) => {
         const cardStyle = {
             backgroundImage: `url(${props.imageUrl})`,
             backgroundRepeat: 'no-repeat',
+            backgroundSize: 'auto',
             width: '447px',
             height: '245px',
             boxShadow: 'none',
             backgroundColor: 'inherit',
             marginLeft: '10%',
-            display: 'flex',
+            marginBottom: '5%',
         };
 
         return <Card className="card" style={cardStyle}>
@@ -41,6 +44,7 @@ function App() {
     return (
         <div className="App">
             <Container className="leftContainer" style={containerStyle}>
+                <div className="front">
                 <CardWithBG imageUrl={cardFront}
                 children={
                     <div className="cardContent">
@@ -53,7 +57,16 @@ function App() {
                     </div>
                 }
                 />
-                <CardWithBG imageUrl={cardBack}/>
+                </div>
+                <div className="back">
+                <CardWithBG imageUrl={cardBack}
+                children={
+                    <div className="cardContent">
+                        <p className="cvv">{cvv}</p>
+                    </div>
+                }
+                />
+                </div>
             </Container>
         </div>
     );
