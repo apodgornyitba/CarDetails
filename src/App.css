@@ -1,8 +1,12 @@
+.App{
+    display: flex;
+}
+
 .front{
-    padding-top: 15%;
+    padding-top: 25%;
 }
 .back{
-    margin-left: 7.5%;
+    margin-left: 17.5%;
 }
 
 .cardContent{
