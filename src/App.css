@@ -40,3 +40,13 @@
     letter-spacing: 3px;
     color: white;
 }
+
+
+.content .expAndCvc {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cvc {
+    margin-right: 60%;
+}

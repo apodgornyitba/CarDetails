@@ -22,7 +22,7 @@ function App() {
         padding: '0',
     };
 
-    const rightContainerStyle ={
+    const rightContainerStyle = {
         display: 'flex',
         justifyContent: 'center',
 
@@ -46,70 +46,92 @@ function App() {
         </Card>;
     };
 
-    const customTextField = (props) => {
+    const CustomTextField = (props) => {
         const textFieldStyle = {
-            backgroundColor: 'transparent',
-            border: 'none',
-            outline: 'none',
-            color: 'white',
+            boxShadow: 'none',
+            backgroundColor: 'inherit',
+            width: props.width,
+
         };
 
-        return <TextField className="textField" style={textFieldStyle} {...props}/>;
+        return <TextField className="textField" placeholder={props.placeholder} style={textFieldStyle}
+                          sx={{
+                              '& .MuiOutlinedInput-root': {
+                                  fontFamily:'inherit',
+                                  borderRadius: '10px',
+
+                              },
+                              '& .MuiOutlinedInput-input': {
+                                  height: props.height,
+                              },
+                          }}/>;
     };
 
     return (
         <div className="App">
             <Container className="leftContainer" style={leftContainerStyle}>
                 <div className="front">
-                <CardWithBG imageUrl={cardFront}
-                children={
-                    <div className="cardContent">
-                        <img className="logo" alt="cardLogo" src={cardLogo}/>
-                        <p className="number">{cardNumber}</p>
-                        <div className="nameExpirationContainer">
-                            <p>{name}</p>
-                            <p>{expirationDate}</p>
-                        </div>
-                    </div>
-                }
-                />
+                    <CardWithBG imageUrl={cardFront}
+                                children={
+                                    <div className="cardContent">
+                                        <img className="logo" alt="cardLogo" src={cardLogo}/>
+                                        <p className="number">{cardNumber}</p>
+                                        <div className="nameExpirationContainer">
+                                            <p>{name}</p>
+                                            <p>{expirationDate}</p>
+                                        </div>
+                                    </div>
+                                }
+                    />
                 </div>
                 <div className="back">
-                <CardWithBG imageUrl={cardBack}
-                children={
-                    <div className="cardContent">
-                        <p className="cvv">{cvv}</p>
-                    </div>
-                }
-                />
+                    <CardWithBG imageUrl={cardBack}
+                                children={
+                                    <div className="cardContent">
+                                        <p className="cvv">{cvv}</p>
+                                    </div>
+                                }
+                    />
                 </div>
             </Container>
             <Container className="rigthContainer" style={rightContainerStyle}>
                 <Card className="content">
                     <p>CARDHOLDER NAME</p>
-                    <TextField
+                    <CustomTextField
                         placeholder="e.g. Jane Appleseed"
+                        width="40%"
+                        height="15px"
                     />
                     <p>CARD NUMBER</p>
-                    <TextField
+                    <CustomTextField
                         placeholder="e.g. 1234 5678 9123 0000"
+                        width='40%'
+                        height="15px"
                     />
                     <div className="expAndCvc">
-                        <p>EXP. DATE (MM/YY)</p>
-                        <p>CVC</p>
-                    </div>
-                    <div className="expAndCvcTextField">
-                        <div>
-                            <TextField
-                                placeholder="MM"
-                            />
-                            <TextField
-                                placeholder="YY"
+                        <div className="expDate">
+                            <p>EXP. DATE (MM/YY)</p>
+                            <div className="expDateFields">
+                                <CustomTextField
+                                    placeholder="MM"
+                                    height="15px"
+                                    width="45%"
+                                />
+                                <CustomTextField
+                                    placeholder="YY"
+                                    height="15px"
+                                    width="45%"
+                                />
+                            </div>
+                        </div>
+                        <div className="cvc">
+                            <p>CVC</p>
+                            <CustomTextField
+                                placeholder="e.g. 123"
+                                height="15px"
+
                             />
                         </div>
-                        <TextField
-                            placeholder="e.g. 123"
-                        />
                     </div>
                     <div>
                         <Button>CONFIRM</Button>
