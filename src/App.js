@@ -32,7 +32,7 @@ function App() {
     };
 
     const handleNameChange = (event) => {
-        const value = event.target.value;
+        const value = event.target.value.toUpperCase();
         if (value !== '') {
             setName(value);
         } else {
@@ -181,7 +181,7 @@ function App() {
                                 width: '65%',
                                 '& .MuiOutlinedInput-root': {
                                     fontFamily: 'inherit',
-                                    borderRadius: '7.5px',
+                                    borderRadius: '8.5px',
                                 },
                                 '& .MuiOutlinedInput-input': {
                                     height: '10px',
@@ -210,7 +210,7 @@ function App() {
                                 width: '65%',
                                 '& .MuiOutlinedInput-root': {
                                     fontFamily: 'inherit',
-                                    borderRadius: '7.5px',
+                                    borderRadius: '8.5px',
                                 },
                                 '& .MuiOutlinedInput-input': {
                                     height: '10px',
