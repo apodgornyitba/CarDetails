@@ -41,12 +41,20 @@
     color: white;
 }
 
-
 .content .expAndCvc {
     display: flex;
     justify-content: space-between;
 }
 
 .cvc {
-    margin-right: 60%;
+    margin-right: 50%;
+}
+
+.content p{
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.confirmButton{
+    display: flex;
 }
