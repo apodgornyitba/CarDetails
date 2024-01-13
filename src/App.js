@@ -169,6 +169,7 @@ function App() {
                     <CustomTextField
                         placeholder="e.g. Jane Appleseed"
                         width="65%"
+                        onChange={(event) => setName(event.target.value)}
                     />
                     <p>CARD NUMBER</p>
                     <CustomTextField
